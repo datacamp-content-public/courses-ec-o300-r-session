@@ -13,18 +13,13 @@ xp: 100
 skills: 1
 ```
 
-Data Management 1 - Change variable name
+Data Management 1 - Create new variable and calculate its mean
 
 `@instructions`
-Using the dataset mtcars, assign the name "cylinders" to the existing variable named "cyl":
+Using the dataset mtcars, create the new variable "efficiency" which should equal to ratio of hp to gallons of gasoline needed to run 100 miles, that is, efficiency = hp/(100/mpg).
 
 `@hint`
-The names of variables can be listed using the command names(mtcars), where mtcars is the name of the dataset that you are using.
-Thus, to get the name of the variable "cyl", write:  
-``` {r}
-names(mtcars)[names(mtcars)=="cyl"]
-```
-Then, assign the new name "cylinders" to replace the name of that variable. To assign the new name, use the assign operator "<-".
+Assign the values of the new variable by writing the formula to compute the values. Recall that variables must be written following the syntax: mtcars$varname.
 
 `@pre_exercise_code`
 ```{r}
@@ -35,21 +30,20 @@ data(mtcars)
 ```{r}
 # get the names of the variables in the dataset:
 names(mtcars)
-# let's check that the 2nd variable is in fact named as "cyl":
-names(mtcars)[4] == "2"     # the result should be "TRUE"
-# assign a new name to the variable "cyl":
+# create a new variable efficiency:
+mtcars$efficiency <- 
 
 ```
 
 `@solution`
 ```{r}
-names(mtcars)[names(mtcars)=="cyl"] <- "cylinders"
+mtcars$efficiency <- mtcars$hp/ (100/mtcars$mpg)
 ```
 
 `@sct`
 ```{r}
 # the 2nd variable name should now be "cylinders"
-ex() %>% check_function(names(mtcars)[2]=="cylinders") %>% check_result() %>% check_equal() 
+ex() %>% check_function() %>% check_result() %>% check_equal() 
 ```
 
 ---
