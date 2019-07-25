@@ -16,37 +16,38 @@ skills: 1
 Data Management 1 - Change variable name
 
 `@instructions`
-Using the dataset ACS, assign the name "gender" to the existing variable named "sex":
+Using the dataset mtcars, assign the name "cylinders" to the existing variable named "cyl":
 
 `@hint`
-The name of a variable can be listed using the command names(myDS), where myDS is the name of the dataset that you are using.
-Thus, to get the name of the variable "sex", we can write:
-names(myDS)[names(myDS)=="oldname"])
-Now, assign the new name "gender" as the replacement for the name of this variable.
-To assign, use the assign operator "<-".
+The names of variables can be listed using the command names(mtcars), where mtcars is the name of the dataset that you are using.
+Thus, to get the name of the variable "cyl", write:  
+``` {r}
+names(mtcars)[names(mtcars)=="cyl"]
+```
+Then, assign the new name "cylinders" to replace the name of that variable. To assign the new name, use the assign operator "<-".
 
 `@pre_exercise_code`
 ```{r}
-ACS <- read.csv("ACS2017_R1-part1.csv",header=TRUE)
+data(mtcars)
 ```
 
 `@sample_code`
 ```{r}
 # get the names of the variables in the dataset:
-names(ACS)
-# let's check that the 4th variable is in fact named as "sex":
-names(ACS)[4] == "sex"     # the result should be "TRUE"
-# assign a new name to the variable "sex":
+names(mtcars)
+# let's check that the 2nd variable is in fact named as "cyl":
+names(mtcars)[4] == "2"     # the result should be "TRUE"
+# assign a new name to the variable "cyl":
 
 ```
 
 `@solution`
 ```{r}
-names(ACS)[names(ACS)=="sex"] <- "gender"
+names(mtcars)[names(mtcars)=="cyl"] <- "cylinders"
 ```
 
 `@sct`
 ```{r}
-# the 4th variable name should now be "gender"
-ex() %>% check_function(names(ACS)[4]=="gender") %>% check_result() %>% check_equal() 
+# the 2nd variable name should now be "cylinders"
+ex() %>% check_function(names(mtcars)[2]=="cylinders") %>% check_result() %>% check_equal() 
 ```
