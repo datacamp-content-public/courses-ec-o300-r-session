@@ -65,7 +65,7 @@ xp: 50
 In the mtcars dataset, what is the name of the 2nd variable (column 2 in the data.frame)?
 
 `@possible_answers`
-"[cyl]", "mpg", "weight", "speed"
+["cyl"]; "mpg"; "weight"; "speed"
 
 `@hint`
 Use the command names(dataset) to get the names:
