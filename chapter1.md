@@ -16,12 +16,14 @@ skills: 1
 Data Management 1 - Change variable name
 
 `@instructions`
-Change the name of the "sex" variable to "gender"
+Using the dataset ACS, assign the name "gender" to the existing variable named "sex":
 
 `@hint`
-# Assign (use <-) the new name to the variable that you want to change the name:  
-Generic syntax: names(dataset)[names(dataset)=="oldname"]) <- "newname"
-The dataset name is ACS (as in the class example):
+The name of a variable can be listed using the command names(myDS), where myDS is the name of the dataset that you are using.
+Thus, to get the name of the variable "sex", we can write:
+names(myDS)[names(myDS)=="oldname"])
+Now, assign the new name "gender" as the replacement for the name of this variable.
+To assign, use the assign operator "<-".
 
 `@pre_exercise_code`
 ```{r}
@@ -30,10 +32,10 @@ ACS <- read.csv("ACS2017_R1-part1.csv",header=TRUE)
 
 `@sample_code`
 ```{r}
-# get the names of variables in the dataset:
+# get the names of the variables in the dataset:
 names(ACS)
 # let's check that the 4th variable is in fact named as "sex":
-names(ACS)[4] == "sex"
+names(ACS)[4] == "sex"     # the result should be "TRUE"
 # assign a new name to the variable "sex":
 
 ```
@@ -46,5 +48,5 @@ names(ACS)[names(ACS)=="sex"] <- "gender"
 `@sct`
 ```{r}
 # the 4th variable name should now be "gender"
-ex() %>% is_equal(names(ACS)[4], "gender", eq_condition = "equal") 
+ex() %>% check_function(names(ACS)[4]=="gender") %>% check_result() %>% check_equal() 
 ```
