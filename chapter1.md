@@ -16,10 +16,11 @@ skills: 1
 Data Management 1 - Create new variable and calculate its mean
 
 `@instructions`
-Using the dataset mtcars, create the new variable "efficiency" which should equal to ratio of hp to gallons of gasoline needed to run 100 miles, that is, efficiency = hp/(100/mpg).
+Using the dataset mtcars, create the new variable "efficiency" which should equal to ratio of horsepower to gallons of gasoline needed to run 100 miles, that is, efficiency = horsepower/(100/mpg).
 
 `@hint`
-Assign the values of the new variable by writing the formula to compute the values. Recall that variables must be written following the syntax: mtcars$varname.
+Assign the values of the new variable by writing the formula to compute the values. Recall that variables must be written following the syntax: mtcars$varname. Thus, your code should start as:
+mtcars$efficiency <- mtcars$...
 
 `@pre_exercise_code`
 ```{r}
@@ -38,12 +39,12 @@ mtcars$efficiency <-
 `@solution`
 ```{r}
 mtcars$efficiency <- mtcars$hp/ (100/mtcars$mpg)
+mean(mtcars$efficiency, na.rm==TRUE)
 ```
 
 `@sct`
 ```{r}
-# the 2nd variable name should now be "cylinders"
-ex() %>% check_function() %>% check_result() %>% check_equal() 
+
 ```
 
 ---
