@@ -19,7 +19,7 @@ Data Management 1 - Change variable name
 Change the name of the "sex" variable to "gender"
 
 `@hint`
-Assign (use <-) the new name to the variable that you want to change the name:  
+# Assign (use <-) the new name to the variable that you want to change the name:  
 Generic syntax: names(dataset)[names(dataset)=="oldname"]) <- "newname"
 The dataset name is ACS (as in the class example):
 
@@ -45,6 +45,6 @@ names(ACS)[names(ACS)=="sex"] <- "gender"
 
 `@sct`
 ```{r}
-names(ACS)[4] == "gender"
 # the 4th variable name should now be "gender"
+is_equal(names(ACS)[4], "gender", eq_condition = "equivalent") 
 ```
