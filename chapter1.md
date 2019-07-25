@@ -51,3 +51,34 @@ names(mtcars)[names(mtcars)=="cyl"] <- "cylinders"
 # the 2nd variable name should now be "cylinders"
 ex() %>% check_function(names(mtcars)[2]=="cylinders") %>% check_result() %>% check_equal() 
 ```
+
+---
+
+## MC trial1
+
+```yaml
+type: MultipleChoiceExercise
+key: 01ea082479
+xp: 50
+```
+
+In the mtcars dataset, what is the name of the 2nd variable (column 2 in the data.frame)?
+
+`@possible_answers`
+["cyl"]
+"mpg"
+"weight"
+"displacement"
+
+`@hint`
+Use the command names(dataset) to get the names:
+
+`@pre_exercise_code`
+```{r}
+data(mtcars)
+```
+
+`@sct`
+```{r}
+ex() %>% check_mc(1, feedback_msgs = c("yes!", "the correct answer is 'cyl'", "the correct answer is 'cyl'","the correct answer is 'cyl'"))
+```
