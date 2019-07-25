@@ -46,5 +46,5 @@ names(ACS)[names(ACS)=="sex"] <- "gender"
 `@sct`
 ```{r}
 # the 4th variable name should now be "gender"
-is_equal(names(ACS)[4], "gender", eq_condition = "equivalent") 
+ex() %>% is_equal(names(ACS)[4], "gender", eq_condition = "equal") 
 ```
