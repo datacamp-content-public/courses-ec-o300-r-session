@@ -3,7 +3,7 @@ title: 'Chapter Title Here'
 description: 'Chapter description goes here.'
 ---
 
-## Example coding exercise
+## Data management
 
 ```yaml
 type: NormalExercise
@@ -19,9 +19,9 @@ Data Management 1 - Change variable name
 Change the name of the "sex" variable to "gender"
 
 `@hint`
-Assign (<-) the new name to the variable that you want to change name:  
-names(dataset)[names(dataset)=="oldname"]) <- "newname"
-The dataset name is ACS (the same dataset as used in class):
+Assign (use <-) the new name to the variable that you want to change the name:  
+Generic syntax: names(dataset)[names(dataset)=="oldname"]) <- "newname"
+The dataset name is ACS (as in the class example):
 
 `@pre_exercise_code`
 ```{r}
@@ -30,16 +30,21 @@ ACS <- read.csv("ACS2017_R1-part1.csv",header=TRUE)
 
 `@sample_code`
 ```{r}
+# get the names of variables in the dataset:
 names(ACS)
+# let's check that the 4th variable is in fact named as "sex":
+names(ACS)[4] == "sex"
+# assign a new name to the variable "sex":
+
 ```
 
 `@solution`
 ```{r}
-names(ACS)[names(ACS)=="sex"]) <- "gender"
+names(ACS)[names(ACS)=="sex"] <- "gender"
 ```
 
 `@sct`
 ```{r}
-names(ACS)[4]=="gender"
+names(ACS)[4] == "gender"
 # the 4th variable name should now be "gender"
 ```
