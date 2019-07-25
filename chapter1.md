@@ -80,5 +80,9 @@ data(mtcars)
 
 `@sct`
 ```{r}
-ex() %>% check_mc(1, feedback_msgs = c("yes!", "the correct answer is 'cyl'", "the correct answer is 'cyl'","the correct answer is 'cyl'"))
+msg1 <- "yes!"
+msg2 <- "the correct answer is 'cyl'"
+msg3 <- "the correct answer is 'cyl'"
+msg4 <- "the correct answer is 'cyl'"
+ex() %>% check_mc(1, feedback_msgs = c(msg1, msg2, msg3,msg4))
 ```
